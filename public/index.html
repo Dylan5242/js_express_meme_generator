@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор мемов</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Наши стили -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<!-- Toast контейнер для уведомлений -->
+<div class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+<!-- Главный контейнер -->
+<div class="container-fluid vh-100 d-flex flex-column p-0">
+    <!-- Заголовок -->
+    <header class="bg-primary text-white text-center py-3">
+        <h1 class="mb-0">Генератор мемов</h1>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="flex-grow-1 d-flex align-items-center justify-content-center p-3">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+            <!-- Карточка мема -->
+            <div class="card shadow">
+                <!-- Окно мема -->
+                <div class="card-body p-4">
+                    <!-- Область отображения мема -->
+                    <div class="meme-display border rounded bg-dark position-relative mb-4">
+                        <!-- Заглушка при загрузке -->
+                        <div class="meme-placeholder" id="memePlaceholder">
+                            <i class="bi bi-card-image"></i>
+                            <p>Загрузка мема...</p>
+                        </div>
+
+                        <!-- Изображение мема -->
+                        <img class="meme-image d-none"
+                             id="memeImage"
+                             alt="Мем">
+
+                        <!-- Текст поверх изображения -->
+                        <div class="caption-overlay d-none" id="captionContainer">
+                            <p class="meme-caption" id="memeCaption">Текст мема</p>
+                        </div>
+                    </div>
+
+                    <!-- Информация о текущем меме -->
+                    <div class="alert alert-info mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span id="memeInfo">Загрузка данных...</span>
+                        </div>
+                    </div>
+
+                    <!-- Кнопка генерации -->
+                    <button class="btn btn-primary btn-lg w-100 mb-4"
+                            id="generateBtn"
+                            onclick="generateMeme()">
+                        <i class="bi bi-shuffle me-2"></i>
+                        Сгенерировать новый мем
+                    </button>
+
+                    <!-- Статистика -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 class="mb-1" id="totalImages">0</h3>
+                                    <p class="text-muted mb-0 small">Изображений</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 class="mb-1" id="totalCaptions">0</h3>
+                                    <p class="text-muted mb-0 small">Подписей</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Статус сервера -->
+    <footer class="bg-dark text-white text-center py-2">
+        <small id="serverStatus">
+            <i class="bi bi-server me-1"></i>Подключение к серверу...
+        </small>
+    </footer>
+</div>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Клиентский скрипт -->
+<script src="/client.js"></script>
+</body>
+</html>3

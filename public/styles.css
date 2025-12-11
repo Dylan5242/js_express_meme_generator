@@ -1,0 +1,113 @@
+/* Основные цвета */
+:root {
+    --primary-color: #6f42c1;    /* Фиолетовый */
+    --secondary-color: #20c997;  /* Зеленый */
+    --background-color: #f8f9fa; /* Светлый фон */
+    --text-color: #212529;       /* Темный текст */
+    --card-bg: #ffffff;          /* Белый фон карточек */
+}
+
+/* Общие стили */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Основной цвет Bootstrap */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover {
+    background-color: #5a32a3 !important;
+    border-color: #5a32a3 !important;
+}
+
+/* Окно мема */
+.meme-display {
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.meme-placeholder {
+    color: #6c757d;
+    text-align: center;
+    padding: 2rem;
+}
+
+.meme-placeholder i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.meme-placeholder p {
+    margin: 0;
+}
+
+.meme-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    text-align: center;
+}
+
+.meme-caption {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow:
+            2px 2px 0 #000,
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            3px 3px 5px rgba(0,0,0,0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Анимации */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .meme-display {
+        height: 300px;
+    }
+
+    .meme-caption {
+        font-size: 1.5rem;
+    }
+}
